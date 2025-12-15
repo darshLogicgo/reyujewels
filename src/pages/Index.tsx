@@ -3,9 +3,11 @@ import Navbar from "@/components/Navbar";
 import HeroSlider from "@/components/HeroSlider";
 import AboutSection from "@/components/AboutSection";
 import DiamondShapes from "@/components/DiamondShapes";
+import VideoSection from "@/components/VideoSection";
 import GallerySection from "@/components/GallerySection";
 import ServicesSection from "@/components/ServicesSection";
 import ContactSection from "@/components/ContactSection";
+import ReviewsSection from "@/components/ReviewsSection";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -39,11 +41,15 @@ const Index = () => {
       
       <DiamondShapes />
       
+      <VideoSection />
+      
       <GallerySection />
       
       <ServicesSection onServiceClick={handleServiceClick} />
       
       <ContactSection onBookAppointment={handleContactClick} />
+      
+      <ReviewsSection />
       
       <Footer />
       
