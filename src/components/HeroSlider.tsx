@@ -1,9 +1,9 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import hero1 from "@/assets/hero-1.jpg";
-import hero2 from "@/assets/hero-2.jpg";
-import hero3 from "@/assets/hero-3.jpg";
+import hero1 from "@/assets/banner1.webp";
+import hero2 from "@/assets/banner2.webp";
+import hero3 from "@/assets/banner3.webp";
 
 const slides = [
   { image: hero1, tagline: "Crafting Timeless Diamond Elegance" },
