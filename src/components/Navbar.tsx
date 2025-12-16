@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import headerLogo from "@/assets/Diamond_Logo.png";
 
 interface NavbarProps {
   onContactClick: () => void;
@@ -41,12 +42,12 @@ const Navbar = ({ onContactClick }: NavbarProps) => {
       >
         <div className="container-luxury flex items-center justify-between">
           {/* Logo */}
-          <a href="#" className="relative z-50">
-            <h1 className={`font-heading text-2xl md:text-3xl font-medium transition-colors duration-300 ${
-              isScrolled ? "text-foreground" : "text-primary-foreground"
-            }`}>
-              Reyu Jewels
-            </h1>
+          <a href="#" className="relative z-50 inline-flex items-center">
+            <img
+              src={headerLogo}
+              alt="Reyu Jewels"
+              className="h-6 md:h-8 w-auto transition-opacity duration-300"
+            />
           </a>
 
           {/* Desktop Navigation */}

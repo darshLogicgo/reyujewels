@@ -59,20 +59,21 @@ const ContactSection = ({ onBookAppointment }: ContactSectionProps) => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-stretch">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true, margin: "-100px" }}
+            className="h-full"
           >
-            <div className="bg-background p-8 md:p-10 rounded-sm shadow-elegant">
+            <div className="bg-background p-8 md:p-10 rounded-sm shadow-elegant h-full flex flex-col">
               <h3 className="font-heading text-2xl text-foreground mb-6">
                 Send Enquiry
               </h3>
 
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form onSubmit={handleSubmit} className="space-y-5 flex-1 flex flex-col">
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
                     Full Name
@@ -131,7 +132,7 @@ const ContactSection = ({ onBookAppointment }: ContactSectionProps) => {
                   />
                 </div>
 
-                <button type="submit" className="btn-gold w-full rounded-sm">
+                <button type="submit" className="btn-gold w-full rounded-sm mt-auto">
                   Send Enquiry
                 </button>
               </form>
@@ -144,15 +145,15 @@ const ContactSection = ({ onBookAppointment }: ContactSectionProps) => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true, margin: "-100px" }}
-            className="space-y-8"
+            className="space-y-8 h-full"
           >
             {/* Address & Contact */}
-            <div className="bg-background p-8 rounded-sm shadow-elegant">
+            <div className="bg-background p-8 rounded-sm shadow-elegant h-full flex flex-col">
               <h3 className="font-heading text-2xl text-foreground mb-6">
                 Visit Our Showroom
               </h3>
 
-              <div className="space-y-5">
+              <div className="space-y-5 flex-1">
                 <div className="flex items-start gap-4">
                   <div className="p-3 bg-primary/10 rounded-sm">
                     <MapPin className="w-5 h-5 text-primary" />
@@ -212,31 +213,6 @@ const ContactSection = ({ onBookAppointment }: ContactSectionProps) => {
               >
                 Book an Appointment
               </button>
-            </div>
-
-            {/* Testimonials */}
-            <div className="bg-background p-8 rounded-sm shadow-elegant">
-              <h3 className="font-heading text-xl text-foreground mb-6">
-                Customer Reviews
-              </h3>
-
-              <div className="space-y-4">
-                {testimonials.map((testimonial, index) => (
-                  <div key={index} className="pb-4 border-b border-border last:border-0 last:pb-0">
-                    <div className="flex items-center gap-1 mb-2">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                      ))}
-                    </div>
-                    <p className="text-muted-foreground text-sm italic">
-                      "{testimonial.text}"
-                    </p>
-                    <p className="text-foreground text-sm font-medium mt-2">
-                      — {testimonial.name}
-                    </p>
-                  </div>
-                ))}
-              </div>
             </div>
           </motion.div>
         </div>

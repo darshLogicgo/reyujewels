@@ -1,172 +1,181 @@
-import { useCallback, useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
-import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
-
 const videos = [
   {
     id: 1,
-    title: "The Art of Diamond Cutting",
-    description: "Witness the precision and artistry behind every brilliant cut",
-    videoUrl: "https://videos.pexels.com/video-files/4267537/4267537-uhd_2560_1440_30fps.mp4",
-    poster: "https://images.pexels.com/videos/4267537/pexels-photo-4267537.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    // title: "Cushion Cut Diamond",
+    // description: "EX Cut · VS Clarity · IGI Certified",
+    videoUrl:
+      "https://cdn.shopify.com/videos/c/o/v/bd5d752adc7a42db8564d17532c2f0a6.mp4",
   },
   {
     id: 2,
-    title: "Crafting Timeless Elegance",
-    description: "From raw beauty to refined masterpiece",
-    videoUrl: "https://videos.pexels.com/video-files/4268290/4268290-uhd_2560_1440_30fps.mp4",
-    poster: "https://images.pexels.com/videos/4268290/pexels-photo-4268290.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    // title: "Oval Cut Diamond",
+    // description: "Brilliant Fire & Sparkle",
+    videoUrl:
+      "https://cdn.shopify.com/videos/c/o/v/e5ee792f9d394ae8af085f5233e591de.mp4",
   },
   {
     id: 3,
-    title: "The Journey of a Diamond",
-    description: "Experience the transformation from earth to excellence",
-    videoUrl: "https://videos.pexels.com/video-files/4268515/4268515-uhd_2560_1440_30fps.mp4",
-    poster: "https://images.pexels.com/videos/4268515/pexels-photo-4268515.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-  }
+    // title: "Round Brilliant",
+    // description: "Classic Perfection",
+    videoUrl:
+      "https://www.pexels.com/download/video/6763534/",
+  },
+  {
+    id: 4,
+    // title: "Marquise Cut",
+    // description: "Elegant & Elongated",
+    videoUrl:
+      "https://www.shutterstock.com/shutterstock/videos/3649043049/preview/stock-footage-timeless-devotion-luxurious-emerald-and-diamond-wedding-rings-elegant-bridal-jewelry-and.webm",
+  },
+  {
+    id: 5,
+    // title: "Marquise Cut",
+    // description: "Elegant & Elongated",
+    videoUrl:
+      "https://www.shutterstock.com/shutterstock/videos/3802129801/preview/stock-footage-round-brilliant-cut-diamond-swaying-in-tweezers-on-gray-background-seamless-loop-vertical-d.webm",
+  },
+  {
+    id: 6,
+    // title: "Marquise Cut",
+    // description: "Elegant & Elongated",
+    videoUrl:
+      "https://cdn.shopify.com/videos/c/o/v/e5ee792f9d394ae8af085f5233e591de.mp4",
+  },
+  {
+    id: 7,
+    // title: "Marquise Cut",
+    // description: "Elegant & Elongated",
+    videoUrl:
+      "https://cdn.shopify.com/videos/c/o/v/c07099bbb0a9497a89c9c5436580ac8d.mp4",
+  },
 ];
 
 const VideoSection = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: true, align: "center" },
-    [Autoplay({ delay: 8000, stopOnInteraction: true })]
-  );
-  const [selectedIndex, setSelectedIndex] = useState(0);
-
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
-  }, [emblaApi]);
-
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
-  }, [emblaApi]);
-
-  const onSelect = useCallback(() => {
-    if (!emblaApi) return;
-    setSelectedIndex(emblaApi.selectedScrollSnap());
-  }, [emblaApi]);
-
-  useEffect(() => {
-    if (!emblaApi) return;
-    onSelect();
-    emblaApi.on("select", onSelect);
-    return () => {
-      emblaApi.off("select", onSelect);
-    };
-  }, [emblaApi, onSelect]);
+  // Duplicate videos for seamless infinite scroll
+  const duplicatedVideos = [...videos, ...videos];
 
   return (
-    <section id="video" className="py-20 lg:py-32 bg-foreground relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
-          backgroundSize: '40px 40px'
-        }} />
-      </div>
+    <>
+      <style>{`
+        @keyframes infinite-scroll {
+          0% {
+            transform: translate3d(0, 0, 0);
+          }
+          100% {
+            transform: translate3d(-50%, 0, 0);
+          }
+        }
 
-      <div className="container-luxury relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="text-center max-w-2xl mx-auto mb-16"
-        >
-          <span className="text-primary text-sm uppercase tracking-[0.25em] font-medium">
-            Behind The Scenes
-          </span>
-          <h2 className="heading-section mt-4 text-background">
-            Our Craftsmanship
-          </h2>
-          <p className="text-background/70 mt-4 text-lg">
-            Discover the artistry and dedication that goes into creating every Reyu Jewels masterpiece.
-          </p>
-        </motion.div>
+        .video-carousel-track {
+          animation: infinite-scroll 20s linear infinite;
+          display: flex;
+          gap: 1.5rem;
+          will-change: transform;
+          width: max-content; /* prevent flex container from shrinking so translateX stays consistent */
+          transform: translate3d(0, 0, 0); /* reduce flicker */
+        }
 
-        <div className="relative">
-          {/* Navigation Arrows */}
-          <button
-            onClick={scrollPrev}
-            className="absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 bg-background/20 hover:bg-background/40 backdrop-blur-sm p-3 lg:p-4 rounded-full transition-all duration-300"
-            aria-label="Previous video"
-          >
-            <ChevronLeft className="w-5 h-5 lg:w-6 lg:h-6 text-background" />
-          </button>
-          
-          <button
-            onClick={scrollNext}
-            className="absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 bg-background/20 hover:bg-background/40 backdrop-blur-sm p-3 lg:p-4 rounded-full transition-all duration-300"
-            aria-label="Next video"
-          >
-            <ChevronRight className="w-5 h-5 lg:w-6 lg:h-6 text-background" />
-          </button>
+        .video-carousel-track:hover {
+          animation-play-state: paused;
+        }
 
-          {/* Video Carousel */}
-          <div className="overflow-hidden rounded-sm" ref={emblaRef}>
-            <div className="flex">
-              {videos.map((video, index) => (
-                <div
-                  key={video.id}
-                  className="flex-[0_0_100%] min-w-0"
-                >
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true }}
-                    className="relative aspect-video max-w-5xl mx-auto rounded-sm overflow-hidden shadow-2xl"
-                  >
-                    <video
-                      className="w-full h-full object-cover"
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      poster={video.poster}
-                    >
-                      <source src={video.videoUrl} type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
-                    
-                    {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-transparent to-transparent" />
-                    
-                    {/* Video Info */}
-                    <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-10">
-                      <h3 className="font-heading text-2xl lg:text-3xl text-background mb-2">
-                        {video.title}
-                      </h3>
-                      <p className="text-background/80 text-sm lg:text-base max-w-xl">
-                        {video.description}
-                      </p>
+        .video-carousel-bleed {
+          width: 100vw;
+          margin-left: calc(50% - 50vw);
+          margin-right: calc(50% - 50vw);
+          padding-left: 0;
+          padding-right: 0;
+        }
+
+        .video-carousel-wrapper {
+          overflow: hidden;
+          position: relative;
+          width: 100%;
+        }
+
+        .video-item {
+          // flex: 0 0 calc(25% - 1.125rem);
+          // min-width: calc(25% - 1.125rem);
+        }
+
+        .video-frame {
+          height: clamp(320px, 60vh, 520px);
+        }
+
+        // @media (max-width: 1024px) {
+        //   .video-item {
+        //     flex: 0 0 calc(33.333% - 1rem);
+        //     min-width: calc(33.333% - 1rem);
+        //   }
+        // }
+
+        // @media (max-width: 768px) {
+        //   .video-item {
+        //     flex: 0 0 calc(50% - 0.75rem);
+        //     min-width: calc(50% - 0.75rem);
+        //   }
+        // }
+
+        // @media (max-width: 640px) {
+        //   .video-item {
+        //     flex: 0 0 calc(100% - 0.5rem);
+        //     min-width: calc(100% - 0.5rem);
+        //   }
+        // }
+      `}</style>
+      <section className="py-24 bg-foreground overflow-hidden">
+        <div className="container-luxury mx-auto px-6 relative">
+          {/* ===== Heading Section (AS IT IS) ===== */}
+          <div className="text-center mb-16 max-w-2xl mx-auto">
+            <p className="text-primary uppercase tracking-[0.25em] text-sm mb-4">
+              Our Diamonds
+            </p>
+            <h2 className="text-4xl font-heading text-background mb-4">
+              Shapes of Brilliance
+            </h2>
+            <p className="text-background/70">
+              Precision-cut lab-grown diamonds crafted to perfection.
+            </p>
+          </div>
+
+          {/* ===== Custom Infinite Scroll Carousel ===== */}
+          <div className="video-carousel-bleed">
+            <div className="video-carousel-wrapper">
+              <div className="video-carousel-track">
+                {duplicatedVideos.map((video, index) => (
+                <div key={`${video.id}-${index}`} className="video-item">
+                  <div className="relative aspect-[9/16] video-frame rounded-2xl overflow-hidden">
+                      <video
+                        className="w-full h-full object-cover"
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                      >
+                        <source src={video.videoUrl} type="video/mp4" />
+                      </video>
+
+                      {/* Overlay */}
+                      <div className="absolute inset-0 bg-black/25" />
+
+                      {/* Text Overlay */}
+                      {/* <div className="absolute bottom-6 w-full text-center px-4">
+                        <h3 className="text-white text-xl tracking-widest font-semibold">
+                          {video.title}
+                        </h3>
+                        <p className="text-white/70 text-xs mt-1">
+                          {video.subtitle}
+                        </p>
+                      </div> */}
                     </div>
-                  </motion.div>
-                </div>
-              ))}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-
-          {/* Dots Navigation */}
-          <div className="flex justify-center gap-3 mt-8">
-            {videos.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => emblaApi?.scrollTo(index)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  index === selectedIndex 
-                    ? "bg-primary w-8" 
-                    : "bg-background/40 hover:bg-background/60"
-                }`}
-                aria-label={`Go to video ${index + 1}`}
-              />
-            ))}
-          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

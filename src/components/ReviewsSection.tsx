@@ -53,71 +53,128 @@ const reviews = [
 ];
 
 const ReviewsSection = () => {
-  return (
-    <section id="reviews" className="section-padding bg-secondary/20">
-      <div className="container-luxury">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="text-center max-w-2xl mx-auto mb-16"
-        >
-          <span className="text-primary text-sm uppercase tracking-[0.25em] font-medium">
-            Testimonials
-          </span>
-          <h2 className="heading-section mt-4 text-foreground">
-            What Our Clients Say
-          </h2>
-          <p className="text-luxury mt-4">
-            Discover why discerning customers choose Reyu Jewels for their most precious moments.
-          </p>
-        </motion.div>
+  const duplicatedReviews = [...reviews, ...reviews];
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {reviews.map((review, index) => (
-            <motion.div
-              key={review.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              className="bg-background p-8 rounded-sm shadow-soft hover:shadow-gold transition-all duration-500 relative group"
-            >
-              {/* Quote Icon */}
-              <Quote className="absolute top-6 right-6 w-8 h-8 text-primary/20 group-hover:text-primary/40 transition-colors duration-300" />
-              
-              {/* Stars */}
-              <div className="flex gap-1 mb-4">
-                {[...Array(review.rating)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+  return (
+    <>
+      <style>{`
+        @keyframes reviews-infinite-scroll {
+          0% { transform: translate3d(0, 0, 0); }
+          100% { transform: translate3d(-50%, 0, 0); }
+        }
+
+        .reviews-track {
+          animation: reviews-infinite-scroll 30s linear infinite;
+          display: flex;
+          gap: 1.25rem;
+          will-change: transform;
+          width: max-content;
+          transform: translate3d(0, 0, 0);
+        }
+
+        .reviews-track:hover {
+          animation-play-state: paused;
+        }
+
+        .reviews-wrapper {
+          overflow: hidden;
+          position: relative;
+          width: 100%;
+        }
+
+        .reviews-bleed {
+          width: 100vw;
+          margin-left: calc(50% - 50vw);
+          margin-right: calc(50% - 50vw);
+          padding-left: 0;
+          padding-right: 0;
+        }
+
+        .review-card {
+          flex: 0 0 340px;
+          min-width: 340px;
+        }
+
+        @media (max-width: 1024px) {
+          .review-card {
+            flex: 0 0 300px;
+            min-width: 300px;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .review-card {
+            flex: 0 0 260px;
+            min-width: 260px;
+          }
+        }
+      `}</style>
+
+      <section id="reviews" className="section-padding bg-secondary/20 overflow-hidden">
+        <div className="container-luxury">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="text-center max-w-2xl mx-auto mb-16"
+          >
+            <span className="text-primary text-sm uppercase tracking-[0.25em] font-medium">
+              Testimonials
+            </span>
+            <h2 className="heading-section mt-4 text-foreground">
+              What Our Clients Say
+            </h2>
+            <p className="text-luxury mt-4">
+              Discover why discerning customers choose Reyu Jewels for their most precious moments.
+            </p>
+          </motion.div>
+
+          <div className="reviews-bleed">
+            <div className="reviews-wrapper">
+              <div className="reviews-track">
+                {duplicatedReviews.map((review, index) => (
+                  <div
+                    key={`${review.id}-${index}`}
+                    className="review-card bg-background p-8 rounded-sm shadow-soft transition-all duration-500 relative"
+                  >
+                    {/* Quote Icon */}
+                    <Quote className="absolute top-6 right-6 w-8 h-8 text-primary/20" />
+                    
+                    {/* Stars */}
+                    <div className="flex gap-1 mb-4">
+                      {[...Array(review.rating)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                      ))}
+                    </div>
+                    
+                    {/* Review Text */}
+                    <p className="text-muted-foreground text-sm leading-relaxed mb-6 italic">
+                      "{review.review}"
+                    </p>
+                    
+                    {/* Author Info */}
+                    <div className="border-t border-border/50 pt-4">
+                      <h4 className="font-heading text-foreground font-medium">
+                        {review.name}
+                      </h4>
+                      <div className="flex items-center justify-between mt-1">
+                        <span className="text-muted-foreground text-xs">
+                          {review.location}
+                        </span>
+                        <span className="text-muted-foreground text-xs">
+                          {review.date}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
                 ))}
               </div>
-              
-              {/* Review Text */}
-              <p className="text-muted-foreground text-sm leading-relaxed mb-6 italic">
-                "{review.review}"
-              </p>
-              
-              {/* Author Info */}
-              <div className="border-t border-border/50 pt-4">
-                <h4 className="font-heading text-foreground font-medium">
-                  {review.name}
-                </h4>
-                <div className="flex items-center justify-between mt-1">
-                  <span className="text-muted-foreground text-xs">
-                    {review.location}
-                  </span>
-                  <span className="text-muted-foreground text-xs">
-                    {review.date}
-                  </span>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

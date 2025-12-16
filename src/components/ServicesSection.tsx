@@ -10,12 +10,12 @@ const services = [
   {
     icon: Sparkles,
     title: "Make to Order Jewellery",
-    description: "Commission unique pieces designed and crafted exclusively for you. Our artisans bring your vision to life with precision and artistry.",
+    description: "Commission unique pieces designed and crafted exclusively for you. Our artisans bring your vision to life with precision, elegance, and refined craftsmanship.",
   },
   {
     icon: Palette,
     title: "Customize Jewellery Design",
-    description: "Transform your ideas into reality. Work with our designers to create bespoke pieces that reflect your personal style and story.",
+    description: "Transform your ideas into reality. Collaborate with our designers to create bespoke pieces that reflect your personal style, vision, and story.",
   },
 ];
 

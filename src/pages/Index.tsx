@@ -41,9 +41,10 @@ const Index = () => {
       
       <DiamondShapes />
       
+      <GallerySection />
+      
       <VideoSection />
       
-      <GallerySection />
       
       <ServicesSection onServiceClick={handleServiceClick} />
       
