@@ -5,17 +5,20 @@ const services = [
   {
     icon: Diamond,
     title: "Make to Order Fancy Diamonds",
-    description: "Exquisite fancy colored diamonds crafted to your exact specifications. From rare pinks to vivid yellows, we source and set your perfect stone.",
+    description:
+      "At Reyu Jewels, we specialize in crafting make-to-order fancy diamonds tailored to your exact requirements. From unique shapes and rare colors to precise cuts and sizes, every diamond is created with exceptional attention to detail, ensuring unmatched brilliance, quality, and exclusivity for each client.",
   },
   {
     icon: Sparkles,
     title: "Make to Order Jewellery",
-    description: "Commission unique pieces designed and crafted exclusively for you. Our artisans bring your vision to life with precision, elegance, and refined craftsmanship.",
+    description:
+      "Our make-to-order jewellery service transforms your vision into timeless elegance. Whether it’s a bespoke engagement ring, a statement piece, or fine everyday luxury, Reyu Jewels creates each design with premium craftsmanship, certified diamonds, and a commitment to perfection.",
   },
   {
     icon: Palette,
     title: "Customize Jewellery Design",
-    description: "Transform your ideas into reality. Collaborate with our designers to create bespoke pieces that reflect your personal style, vision, and story.",
+    description:
+      "With our customized jewellery design service, you are part of the creative journey from concept to completion. Choose your diamond, setting, metal, and finish, and let our expert artisans bring your personalized design to life—crafted to reflect your style, story, and individuality.",
   },
 ];
 
@@ -41,8 +44,8 @@ const ServicesSection = ({ onServiceClick }: ServicesSectionProps) => {
             Our Services
           </h2>
           <p className="text-primary-foreground/70 text-base md:text-lg leading-relaxed mt-4">
-            Experience the art of personalized luxury with our exclusive services, 
-            tailored to your unique desires and discerning taste.
+            Experience the art of personalized luxury with our exclusive
+            services, tailored to your unique desires and discerning taste.
           </p>
         </motion.div>
 

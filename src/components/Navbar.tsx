@@ -31,13 +31,9 @@ const Navbar = ({ onContactClick }: NavbarProps) => {
   return (
     <>
       <motion.header
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled
-            ? "bg-background/95 backdrop-blur-md shadow-elegant py-4"
-            : "bg-transparent py-6"
+        initial={{ y: 0 }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white ${
+          isScrolled ? "shadow-elegant py-4" : "py-6"
         }`}
       >
         <div className="container-luxury flex items-center justify-between">
@@ -46,7 +42,7 @@ const Navbar = ({ onContactClick }: NavbarProps) => {
             <img
               src={headerLogo}
               alt="Reyu Jewels"
-              className="h-6 md:h-8 w-auto transition-opacity duration-300"
+              className="h-10 md:h-12 w-auto transition-opacity duration-300"
             />
           </a>
 
@@ -56,9 +52,7 @@ const Navbar = ({ onContactClick }: NavbarProps) => {
               <a
                 key={link.href}
                 href={link.href}
-                className={`text-sm uppercase tracking-[0.15em] font-medium transition-colors duration-300 hover:text-primary ${
-                  isScrolled ? "text-foreground" : "text-primary-foreground"
-                }`}
+                className="text-sm uppercase tracking-[0.15em] font-medium transition-colors duration-300 hover:text-primary text-foreground"
               >
                 {link.label}
               </a>
@@ -67,23 +61,21 @@ const Navbar = ({ onContactClick }: NavbarProps) => {
               onClick={onContactClick}
               className="btn-gold rounded-sm text-xs py-3 px-6"
             >
-              Book Appointment
+              Enquiry Now
             </button>
           </nav>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`lg:hidden p-2 transition-colors duration-300 z-50 ${
-              isMobileMenuOpen
-                ? "text-foreground"
-                : isScrolled
-                ? "text-foreground"
-                : "text-primary-foreground"
-            }`}
+            className="lg:hidden p-2 transition-colors duration-300 z-50 text-foreground"
             aria-label="Toggle menu"
           >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </button>
         </div>
       </motion.header>

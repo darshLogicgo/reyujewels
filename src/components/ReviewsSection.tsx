@@ -4,52 +4,94 @@ import { Star, Quote } from "lucide-react";
 const reviews = [
   {
     id: 1,
-    name: "Priya Sharma",
-    location: "Mumbai",
+    name: "Rahul Mehta",
+    location: "Mumbai, India",
     rating: 5,
-    review: "Absolutely stunning craftsmanship! The diamond ring I purchased exceeded all my expectations. Reyu Jewels truly understands luxury.",
-    date: "2 weeks ago"
+    review:
+      "Reyu Jewels delivered exactly what they promised. The diamond quality, transparency, and timely delivery exceeded my expectations. Truly a brand you can trust.",
+    date: "1 month ago",
+  },
+  {
+    id: 7,
+    name: "Sophia Martinez",
+    location: "Los Angeles, USA",
+    rating: 5,
+    review:
+      "The diamonds from Reyu Jewels are absolutely stunning. Their attention to detail and ethical sourcing give me complete confidence in the brand.",
+    date: "1 month ago",
   },
   {
     id: 2,
-    name: "Rahul Mehta",
-    location: "Delhi",
+    name: "Neha Shah",
+    location: "Surat, India",
     rating: 5,
-    review: "Exceptional service and beautiful pieces. The custom engagement ring they created was perfect. My fiancée was speechless!",
-    date: "1 month ago"
+    review:
+      "As someone from the diamond city itself, I am very particular about quality. Reyu Jewels impressed me with their precision, certification, and honest pricing.",
+    date: "2 months ago",
+  },
+  {
+    id: 10,
+    name: "Ahmed Al-Farsi",
+    location: "Dubai, UAE",
+    rating: 5,
+    review:
+      "Reyu Jewels is a name I rely on for premium diamonds. Their service, clarity in dealings, and product quality are world-class.",
+    date: "1 month ago",
   },
   {
     id: 3,
-    name: "Ananya Patel",
-    location: "Bangalore",
+    name: "Amit Patel",
+    location: "Ahmedabad, India",
     rating: 5,
-    review: "The quality of diamonds at Reyu Jewels is unmatched. Their attention to detail and customer service made my shopping experience memorable.",
-    date: "3 weeks ago"
+    review:
+      "The craftsmanship and consistency of Reyu Jewels are remarkable. Every stone speaks of trust and expertise. Highly recommended for long-term business.",
+    date: "3 weeks ago",
+  },
+  {
+    id: 9,
+    name: "Olivia Brown",
+    location: "London, UK",
+    rating: 5,
+    review:
+      "I appreciate Reyu Jewels’ commitment to trust and long-term relationships. Their diamonds truly reflect quality and care.",
+    date: "2 month ago",
   },
   {
     id: 4,
-    name: "Vikram Singh",
-    location: "Jaipur",
+    name: "Priya Jain",
+    location: "Jaipur, India",
     rating: 5,
-    review: "I've purchased from many jewellers, but Reyu Jewels stands out. Their collection is exquisite and the team is incredibly knowledgeable.",
-    date: "1 week ago"
+    review:
+      "Buying diamonds felt effortless with Reyu Jewels. Their team explained everything clearly and helped me choose the perfect piece. A wonderful experience.",
+    date: "1 week ago",
+  },
+  {
+    id: 8,
+    name: "Daniel Fischer",
+    location: "Frankfurt, Germany",
+    rating: 5,
+    review:
+      "The diamonds from Reyu Jewels are absolutely stunning. Their attention to detail and ethical sourcing give me complete confidence in the brand.",
+    date: "1 month ago",
   },
   {
     id: 5,
-    name: "Neha Kapoor",
-    location: "Chennai",
+    name: "Kunal Desai",
+    location: "Bengaluru, India",
     rating: 5,
-    review: "From selection to delivery, everything was seamless. The necklace I ordered is a true masterpiece. Highly recommend!",
-    date: "2 months ago"
+    review:
+      "Reyu Jewels stands for reliability. From selection to delivery, everything was smooth and professional. I will definitely return for future purchases.",
+    date: "2 months ago",
   },
   {
     id: 6,
-    name: "Arjun Reddy",
-    location: "Hyderabad",
+    name: "Michael Thompson",
+    location: "New York, USA",
     rating: 5,
-    review: "The craftsmanship is remarkable. Every piece tells a story of elegance and sophistication. Will definitely return for more.",
-    date: "1 month ago"
-  }
+    review:
+      "Reyu Jewels combines exceptional diamond quality with transparent communication. Even from overseas, the process felt secure and seamless.",
+    date: "2 month ago",
+  },
 ];
 
 const ReviewsSection = () => {
@@ -110,7 +152,10 @@ const ReviewsSection = () => {
         }
       `}</style>
 
-      <section id="reviews" className="section-padding bg-secondary/20 overflow-hidden">
+      <section
+        id="reviews"
+        className="section-padding bg-secondary/20 overflow-hidden"
+      >
         <div className="container-luxury">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -126,7 +171,8 @@ const ReviewsSection = () => {
               What Our Clients Say
             </h2>
             <p className="text-luxury mt-4">
-              Discover why discerning customers choose Reyu Jewels for their most precious moments.
+              Discover why discerning customers choose Reyu Jewels for their
+              most precious moments.
             </p>
           </motion.div>
 
@@ -140,19 +186,22 @@ const ReviewsSection = () => {
                   >
                     {/* Quote Icon */}
                     <Quote className="absolute top-6 right-6 w-8 h-8 text-primary/20" />
-                    
+
                     {/* Stars */}
                     <div className="flex gap-1 mb-4">
                       {[...Array(review.rating)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                        <Star
+                          key={i}
+                          className="w-4 h-4 fill-primary text-primary"
+                        />
                       ))}
                     </div>
-                    
+
                     {/* Review Text */}
                     <p className="text-muted-foreground text-sm leading-relaxed mb-6 italic">
                       "{review.review}"
                     </p>
-                    
+
                     {/* Author Info */}
                     <div className="border-t border-border/50 pt-4">
                       <h4 className="font-heading text-foreground font-medium">

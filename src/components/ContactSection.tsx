@@ -33,7 +33,9 @@ const ContactSection = ({ onBookAppointment }: ContactSectionProps) => {
     setFormData({ fullName: "", email: "", phone: "", message: "" });
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -50,11 +52,9 @@ const ContactSection = ({ onBookAppointment }: ContactSectionProps) => {
           <span className="text-primary text-sm uppercase tracking-[0.25em] font-medium">
             Get in Touch
           </span>
-          <h2 className="heading-section mt-4 text-foreground">
-            Contact Us
-          </h2>
+          <h2 className="heading-section mt-4 text-foreground">Contact Us</h2>
           <p className="text-luxury mt-4">
-            We'd love to hear from you. Reach out for inquiries, appointments, 
+            We'd love to hear from you. Reach out for inquiries, appointments,
             or to discuss your custom jewellery needs.
           </p>
         </motion.div>
@@ -73,7 +73,10 @@ const ContactSection = ({ onBookAppointment }: ContactSectionProps) => {
                 Send Enquiry
               </h3>
 
-              <form onSubmit={handleSubmit} className="space-y-5 flex-1 flex flex-col">
+              <form
+                onSubmit={handleSubmit}
+                className="space-y-5 flex-1 flex flex-col"
+              >
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
                     Full Name
@@ -132,7 +135,10 @@ const ContactSection = ({ onBookAppointment }: ContactSectionProps) => {
                   />
                 </div>
 
-                <button type="submit" className="btn-gold w-full rounded-sm mt-auto">
+                <button
+                  type="submit"
+                  className="btn-gold w-full rounded-sm mt-auto"
+                >
                   Send Enquiry
                 </button>
               </form>
@@ -161,8 +167,9 @@ const ContactSection = ({ onBookAppointment }: ContactSectionProps) => {
                   <div>
                     <h4 className="font-medium text-foreground">Address</h4>
                     <p className="text-muted-foreground text-sm mt-1">
-                      123 Diamond District, Zaveri Bazaar,<br />
-                      Mumbai, Maharashtra 400003, India
+                      301, Silver Stone Arcade, Causeway Rd, Katargam,
+                      <br />
+                      Surat, Gujarat 395004
                     </p>
                   </div>
                 </div>
@@ -174,8 +181,7 @@ const ContactSection = ({ onBookAppointment }: ContactSectionProps) => {
                   <div>
                     <h4 className="font-medium text-foreground">Phone</h4>
                     <p className="text-muted-foreground text-sm mt-1">
-                      +91 22 2345 6789<br />
-                      +91 98765 43210
+                      +91 98980 76868
                     </p>
                   </div>
                 </div>
@@ -187,8 +193,7 @@ const ContactSection = ({ onBookAppointment }: ContactSectionProps) => {
                   <div>
                     <h4 className="font-medium text-foreground">Email</h4>
                     <p className="text-muted-foreground text-sm mt-1">
-                      info@reyujewels.com<br />
-                      sales@reyujewels.com
+                      info@reyujewels.com
                     </p>
                   </div>
                 </div>
@@ -198,9 +203,12 @@ const ContactSection = ({ onBookAppointment }: ContactSectionProps) => {
                     <Clock className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-medium text-foreground">Working Hours</h4>
+                    <h4 className="font-medium text-foreground">
+                      Working Hours
+                    </h4>
                     <p className="text-muted-foreground text-sm mt-1">
-                      Mon - Sat: 10:00 AM - 8:00 PM<br />
+                      Mon - Sat: 10:00 AM - 8:00 PM
+                      <br />
                       Sunday: By Appointment Only
                     </p>
                   </div>

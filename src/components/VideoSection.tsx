@@ -11,14 +11,13 @@ const videos = [
     // title: "Oval Cut Diamond",
     // description: "Brilliant Fire & Sparkle",
     videoUrl:
-      "https://cdn.shopify.com/videos/c/o/v/e5ee792f9d394ae8af085f5233e591de.mp4",
+      "https://guardianshot.blr1.cdn.digitaloceanspaces.com/65016504a45aa2335bfb67d3/1045003302_1.mp4",
   },
   {
     id: 3,
     // title: "Round Brilliant",
     // description: "Classic Perfection",
-    videoUrl:
-      "https://www.pexels.com/download/video/6763534/",
+    videoUrl: "https://www.pexels.com/download/video/6763534/",
   },
   {
     id: 4,
@@ -27,26 +26,26 @@ const videos = [
     videoUrl:
       "https://www.shutterstock.com/shutterstock/videos/3649043049/preview/stock-footage-timeless-devotion-luxurious-emerald-and-diamond-wedding-rings-elegant-bridal-jewelry-and.webm",
   },
-  {
-    id: 5,
-    // title: "Marquise Cut",
-    // description: "Elegant & Elongated",
-    videoUrl:
-      "https://www.shutterstock.com/shutterstock/videos/3802129801/preview/stock-footage-round-brilliant-cut-diamond-swaying-in-tweezers-on-gray-background-seamless-loop-vertical-d.webm",
-  },
-  {
-    id: 6,
-    // title: "Marquise Cut",
-    // description: "Elegant & Elongated",
-    videoUrl:
-      "https://cdn.shopify.com/videos/c/o/v/e5ee792f9d394ae8af085f5233e591de.mp4",
-  },
+  // {
+  //   id: 5,
+  //   // title: "Marquise Cut",
+  //   // description: "Elegant & Elongated",
+  //   videoUrl:
+  //     "https://www.shutterstock.com/shutterstock/videos/3649043049/preview/stock-footage-timeless-devotion-luxurious-emerald-and-diamond-wedding-rings-elegant-bridal-jewelry-and.webm",
+  // },
+  // {
+  //   id: 6,
+  //   // title: "Marquise Cut",
+  //   // description: "Elegant & Elongated",
+  //   videoUrl:
+  //     "https://guardianshot.blr1.cdn.digitaloceanspaces.com/65016504a45aa2335bfb67d3/1045003302_1.mp4",
+  // },
   {
     id: 7,
     // title: "Marquise Cut",
     // description: "Elegant & Elongated",
     videoUrl:
-      "https://cdn.shopify.com/videos/c/o/v/c07099bbb0a9497a89c9c5436580ac8d.mp4",
+      "https://guardianshot.blr1.cdn.digitaloceanspaces.com/65016504a45aa2335bfb67d3/1045003302_3.mp4",
   },
 ];
 
@@ -143,8 +142,8 @@ const VideoSection = () => {
             <div className="video-carousel-wrapper">
               <div className="video-carousel-track">
                 {duplicatedVideos.map((video, index) => (
-                <div key={`${video.id}-${index}`} className="video-item">
-                  <div className="relative aspect-[9/16] video-frame rounded-2xl overflow-hidden">
+                  <div key={`${video.id}-${index}`} className="video-item">
+                    <div className="relative aspect-[9/16] video-frame rounded-2xl overflow-hidden">
                       <video
                         className="w-full h-full object-cover"
                         autoPlay

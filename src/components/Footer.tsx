@@ -11,8 +11,8 @@ const Footer = () => {
               Reyu Jewels
             </h2>
             <p className="text-primary-foreground/60 text-sm leading-relaxed max-w-md">
-              Crafting timeless diamond elegance since 1999. Every piece tells a story 
-              of love, celebration, and the pursuit of perfection.
+              Crafting timeless diamond elegance since 1999. Every piece tells a
+              story of love, celebration, and the pursuit of perfection.
             </p>
             <div className="flex items-center gap-2 mt-6 text-primary">
               <Diamond className="w-5 h-5" />
@@ -28,7 +28,13 @@ const Footer = () => {
               Quick Links
             </h3>
             <ul className="space-y-3">
-              {["About Us", "Diamonds", "Collection", "Services", "Contact"].map((link) => (
+              {[
+                "About Us",
+                "Diamonds",
+                "Collection",
+                "Services",
+                "Contact",
+              ].map((link) => (
                 <li key={link}>
                   <a
                     href={`#${link.toLowerCase().replace(" ", "")}`}
@@ -47,11 +53,12 @@ const Footer = () => {
               Contact
             </h3>
             <ul className="space-y-3 text-primary-foreground/60 text-sm">
-              <li>+91 22 2345 6789</li>
+              <li>+91 98980 76868</li>
               <li>info@reyujewels.com</li>
               <li>
-                123 Diamond District,<br />
-                Zaveri Bazaar, Mumbai
+                301, Silver Stone Arcade, Causeway Rd, Katargam,
+                <br />
+                Surat, Gujarat 395004
               </li>
             </ul>
           </div>
@@ -62,10 +69,16 @@ const Footer = () => {
             © {new Date().getFullYear()} Reyu Jewels. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <a href="#" className="text-primary-foreground/40 text-sm hover:text-primary transition-colors">
+            <a
+              href="#"
+              className="text-primary-foreground/40 text-sm hover:text-primary transition-colors"
+            >
               Privacy Policy
             </a>
-            <a href="#" className="text-primary-foreground/40 text-sm hover:text-primary transition-colors">
+            <a
+              href="#"
+              className="text-primary-foreground/40 text-sm hover:text-primary transition-colors"
+            >
               Terms of Service
             </a>
           </div>

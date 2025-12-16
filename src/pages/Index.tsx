@@ -32,30 +32,29 @@ const Index = () => {
   };
 
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-background overflow-x-hidden max-w-full">
       <Navbar onContactClick={handleContactClick} />
-      
+
       <HeroSlider onContactClick={handleContactClick} />
-      
+
       <AboutSection />
-      
+
       <DiamondShapes />
-      
+
       <GallerySection />
-      
+
       <VideoSection />
-      
-      
+
       <ServicesSection onServiceClick={handleServiceClick} />
-      
+
       <ContactSection onBookAppointment={handleContactClick} />
-      
+
       <ReviewsSection />
-      
+
       <Footer />
-      
+
       <WhatsAppButton />
-      
+
       <ContactForm
         isOpen={isContactFormOpen}
         onClose={handleCloseForm}
