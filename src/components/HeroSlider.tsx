@@ -87,6 +87,7 @@ const HeroSlider = ({ onContactClick }: HeroSliderProps) => {
                 </a>
               </div>
             </motion.div>
+
           </div>
         </div> */}
 
@@ -106,12 +107,12 @@ const HeroSlider = ({ onContactClick }: HeroSliderProps) => {
           </button>
 
           {/* ===== DOTS ===== */}
-          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-3 z-20 pointer-events-auto">
+          <div className="absolute bottom-2 sm:bottom-4 md:bottom-10 left-1/2 -translate-x-1/2 flex gap-2 sm:gap-3 z-20 pointer-events-auto">
             {slides.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`w-12 h-1 transition-all duration-500 ${
+                className={`w-8 sm:w-10 md:w-12 h-1 transition-all duration-500 ${
                   index === currentSlide
                     ? "bg-primary"
                     : "bg-primary-foreground/40 hover:bg-primary-foreground/60"

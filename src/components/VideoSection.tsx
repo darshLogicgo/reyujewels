@@ -4,7 +4,7 @@ const videos = [
     // title: "Cushion Cut Diamond",
     // description: "EX Cut · VS Clarity · IGI Certified",
     videoUrl:
-      "https://cdn.shopify.com/videos/c/o/v/bd5d752adc7a42db8564d17532c2f0a6.mp4",
+      "https://guardianshot.blr1.cdn.digitaloceanspaces.com/65016504a45aa2335bfb67d3/19b9c1050a05ffe78a4b90a66ac745ce.mp4",
   },
   {
     id: 2,
@@ -17,35 +17,36 @@ const videos = [
     id: 3,
     // title: "Round Brilliant",
     // description: "Classic Perfection",
-    videoUrl: "https://www.pexels.com/download/video/6763534/",
+    videoUrl:
+      "https://guardianshot.blr1.cdn.digitaloceanspaces.com/65016504a45aa2335bfb67d3/545db4d2b58e15b2f034d1d2691a620f.mp4",
   },
   {
     id: 4,
     // title: "Marquise Cut",
     // description: "Elegant & Elongated",
     videoUrl:
-      "https://www.shutterstock.com/shutterstock/videos/3649043049/preview/stock-footage-timeless-devotion-luxurious-emerald-and-diamond-wedding-rings-elegant-bridal-jewelry-and.webm",
+      "https://guardianshot.blr1.cdn.digitaloceanspaces.com/65016504a45aa2335bfb67d3/264216306a8e1d6a092cb62fac2fe8d8.mp4",
   },
-  // {
-  //   id: 5,
-  //   // title: "Marquise Cut",
-  //   // description: "Elegant & Elongated",
-  //   videoUrl:
-  //     "https://www.shutterstock.com/shutterstock/videos/3649043049/preview/stock-footage-timeless-devotion-luxurious-emerald-and-diamond-wedding-rings-elegant-bridal-jewelry-and.webm",
-  // },
-  // {
-  //   id: 6,
-  //   // title: "Marquise Cut",
-  //   // description: "Elegant & Elongated",
-  //   videoUrl:
-  //     "https://guardianshot.blr1.cdn.digitaloceanspaces.com/65016504a45aa2335bfb67d3/1045003302_1.mp4",
-  // },
+  {
+    id: 5,
+    // title: "Marquise Cut",
+    // description: "Elegant & Elongated",
+    videoUrl:
+      "https://guardianshot.blr1.cdn.digitaloceanspaces.com/65016504a45aa2335bfb67d3/a5a93bafe8cea9d79d3a563dd3aee75a.mp4",
+  },
+  {
+    id: 6,
+    // title: "Marquise Cut",
+    // description: "Elegant & Elongated",
+    videoUrl:
+      "https://guardianshot.blr1.cdn.digitaloceanspaces.com/65016504a45aa2335bfb67d3/947b8cbc7dc5fa18fbc774de9e44b2a1.mp4",
+  },
   {
     id: 7,
     // title: "Marquise Cut",
     // description: "Elegant & Elongated",
     videoUrl:
-      "https://guardianshot.blr1.cdn.digitaloceanspaces.com/65016504a45aa2335bfb67d3/1045003302_3.mp4",
+      "https://guardianshot.blr1.cdn.digitaloceanspaces.com/65016504a45aa2335bfb67d3/04abce0e2fd245715eae787431ed78c2.mp4",
   },
 ];
 
@@ -127,7 +128,7 @@ const VideoSection = () => {
           {/* ===== Heading Section (AS IT IS) ===== */}
           <div className="text-center mb-16 max-w-2xl mx-auto">
             <p className="text-primary uppercase tracking-[0.25em] text-sm mb-4">
-              Our Diamonds
+              OUR LAB-GROWN DIAMONDS
             </p>
             <h2 className="text-4xl font-heading text-background mb-4">
               Shapes of Brilliance

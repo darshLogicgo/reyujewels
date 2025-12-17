@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lato:wght@300;400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -50,8 +50,8 @@
     --charcoal: 30 10% 15%;
 
     /* Typography */
-    --font-heading: 'Playfair Display', serif;
-    --font-body: 'Lato', sans-serif;
+    --font-heading: "Playfair Display", serif;
+    --font-body: "Lato", sans-serif;
 
     /* Shadows */
     --shadow-soft: 0 4px 20px hsl(33 48% 63% / 0.08);
@@ -129,7 +129,12 @@
     @apply bg-background text-foreground font-body antialiased;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-heading;
   }
 }
@@ -156,11 +161,21 @@
   }
 
   .gold-gradient {
-    background: linear-gradient(135deg, hsl(var(--gold-light)) 0%, hsl(var(--gold)) 50%, hsl(var(--gold-dark)) 100%);
+    background: linear-gradient(
+      135deg,
+      hsl(var(--gold-light)) 0%,
+      hsl(var(--gold)) 50%,
+      hsl(var(--gold-dark)) 100%
+    );
   }
 
   .gold-text {
-    background: linear-gradient(135deg, hsl(var(--gold-light)) 0%, hsl(var(--gold)) 50%, hsl(var(--gold-dark)) 100%);
+    background: linear-gradient(
+      135deg,
+      hsl(var(--gold-light)) 0%,
+      hsl(var(--gold)) 50%,
+      hsl(var(--gold-dark)) 100%
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -204,11 +219,21 @@
     animation: slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
 
-  .animation-delay-100 { animation-delay: 100ms; }
-  .animation-delay-200 { animation-delay: 200ms; }
-  .animation-delay-300 { animation-delay: 300ms; }
-  .animation-delay-400 { animation-delay: 400ms; }
-  .animation-delay-500 { animation-delay: 500ms; }
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
 }
 
 @keyframes fadeUp {
@@ -223,8 +248,12 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideUp {
@@ -248,4 +277,39 @@
 .masonry-grid-column {
   padding-left: 20px;
   background-clip: padding-box;
+}
+
+/* Hide scrollbars in PDF preview */
+.certificate-preview iframe,
+.certificate-preview object,
+.certificate-preview embed {
+  overflow: hidden !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+.certificate-preview iframe::-webkit-scrollbar,
+.certificate-preview object::-webkit-scrollbar,
+.certificate-preview embed::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
+
+/* Additional aggressive hiding for PDF viewer scrollbars */
+.certificate-preview > div {
+  overflow: hidden !important;
+}
+
+.certificate-preview * {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+.certificate-preview *::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
 }

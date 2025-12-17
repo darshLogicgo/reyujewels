@@ -27,10 +27,52 @@ const ContactSection = ({ onBookAppointment }: ContactSectionProps) => {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    setFormData({ fullName: "", email: "", phone: "", message: "" });
+    setLoading(true);
+    setSuccess(false);
+
+    const data = new FormData();
+
+    // Form data fields
+    data.append("fullName", formData.fullName);
+    data.append("email", formData.email);
+    data.append("phone", formData.phone);
+    data.append("message", formData.message);
+
+    // FormSubmit required hidden fields
+    data.append("_subject", "New Enquiry from Reyu Jewels Website");
+    data.append("_captcha", "false");
+    data.append("_template", "table"); // professional table layout
+    data.append("_replyto", formData.email);
+
+    try {
+      const response = await fetch(
+        "https://formsubmit.co/info@reyujewels.com",
+        {
+          method: "POST",
+          body: data,
+        }
+      );
+
+      if (response.ok) {
+        setSuccess(true);
+        setFormData({ fullName: "", email: "", phone: "", message: "" });
+
+        setTimeout(() => {
+          setSuccess(false);
+        }, 2500);
+      } else {
+        alert("Failed to send. Please try again later.");
+      }
+    } catch (err) {
+      alert("An error occurred. Please try again.");
+    }
+
+    setLoading(false);
   };
 
   const handleChange = (
@@ -117,7 +159,7 @@ const ContactSection = ({ onBookAppointment }: ContactSectionProps) => {
                     value={formData.phone}
                     onChange={handleChange}
                     className="input-luxury rounded-sm"
-                    placeholder="+91 98765 43210"
+                    placeholder="+91 98980 76868"
                   />
                 </div>
 
@@ -137,10 +179,21 @@ const ContactSection = ({ onBookAppointment }: ContactSectionProps) => {
 
                 <button
                   type="submit"
+                  disabled={loading}
                   className="btn-gold w-full rounded-sm mt-auto"
                 >
-                  Send Enquiry
+                  {loading
+                    ? "Sending..."
+                    : success
+                    ? "✓ Sent Successfully"
+                    : "Send Enquiry"}
                 </button>
+
+                {success && (
+                  <p className="text-center text-green-600 text-sm mt-2">
+                    Thank you! Your enquiry has been sent successfully.
+                  </p>
+                )}
               </form>
             </div>
           </motion.div>

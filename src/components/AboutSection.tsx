@@ -22,23 +22,24 @@ const AboutSection = () => {
             </h2>
             <div className="space-y-5 text-luxury">
               <p>
-                At Reyu Jewels, we believe that every diamond tells a story. For
-                over two decades, we have been crafting exquisite jewellery
-                pieces that capture the essence of timeless elegance and
-                unparalleled beauty.
+                At Reyu Jewels, we believe every diamond begins with a conscious
+                choice. For over two decades, we have been redefining fine
+                jewellery through expertly crafted lab-grown diamond creations
+                that embody modern elegance, brilliance, and responsibility.
               </p>
               <p>
-                Our master artisans combine centuries-old techniques with modern
-                innovation, ensuring each creation meets the highest standards
-                of excellence. From sourcing the finest conflict-free diamonds
-                to the final polish, every step reflects our commitment to
-                quality.
+                Our master artisans blend time-honored craftsmanship with
+                advanced technology, transforming ethically created diamonds
+                into stunning works of art. From precision-grown, conflict-free
+                diamonds to the final flawless finish, every piece reflects our
+                unwavering commitment to quality, transparency, and
+                sustainability.
               </p>
               <p>
-                Whether you seek a bespoke engagement ring, a custom necklace,
-                or a unique piece to commemorate life's precious moments, our
-                dedicated team works closely with you to bring your vision to
-                life.
+                Whether you’re envisioning a bespoke engagement ring, a custom
+                necklace, or a meaningful piece to celebrate life’s milestones,
+                our dedicated team collaborates closely with you to bring your
+                vision to life—beautifully, responsibly, and without compromise.
               </p>
             </div>
 
@@ -83,7 +84,7 @@ const AboutSection = () => {
               <img
                 src={aboutImage}
                 alt="Elegant woman wearing Reyu Jewels diamond jewellery"
-                className="w-full h-[500px] lg:h-[650px] object-cover rounded-sm relative"
+                className="w-full h-auto md:max-h-[55vh] lg:max-h-none lg:h-[500px] xl:h-[650px] object-contain lg:object-cover object-center rounded-sm relative"
               />
               <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-foreground/60 to-transparent">
                 <p className="font-heading text-xl text-primary-foreground italic">

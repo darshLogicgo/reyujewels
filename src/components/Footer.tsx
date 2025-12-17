@@ -1,4 +1,5 @@
 import { Diamond } from "lucide-react";
+import logo from "@/assets/Diamond_Logo.png";
 
 const Footer = () => {
   return (
@@ -7,9 +8,14 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
           <div className="md:col-span-2">
-            <h2 className="font-heading text-2xl text-primary-foreground mb-4">
-              Reyu Jewels
-            </h2>
+            <div className="mb-4">
+              <img
+                src={logo}
+                alt="Reyu Jewels"
+                className="h-12 w-auto"
+                loading="lazy"
+              />
+            </div>
             <p className="text-primary-foreground/60 text-sm leading-relaxed max-w-md">
               Crafting timeless diamond elegance since 1999. Every piece tells a
               story of love, celebration, and the pursuit of perfection.

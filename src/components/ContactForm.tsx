@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { X } from "lucide-react";
 
@@ -17,15 +17,58 @@ const ContactForm = ({ isOpen, onClose, serviceTitle }: ContactFormProps) => {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
-    onClose();
-    setFormData({ fullName: "", email: "", phone: "", message: "" });
+    setLoading(true);
+    setSuccess(false);
+
+    const data = new FormData();
+
+    // Form data fields
+    data.append("fullName", formData.fullName);
+    data.append("email", formData.email);
+    data.append("phone", formData.phone);
+    data.append("message", formData.message);
+
+    // FormSubmit required hidden fields
+    data.append("_subject", "New Enquiry from Reyu Jewels Website");
+    data.append("_captcha", "false");
+    data.append("_template", "table"); // professional table layout
+    data.append("_replyto", formData.email);
+
+    try {
+      const response = await fetch(
+        "https://formsubmit.co/info@reyujewels.com",
+        {
+          method: "POST",
+          body: data,
+        }
+      );
+
+      if (response.ok) {
+        setSuccess(true);
+        setFormData({ fullName: "", email: "", phone: "", message: "" });
+
+        setTimeout(() => {
+          setSuccess(false);
+          onClose();
+        }, 2500);
+      } else {
+        alert("Failed to send. Please try again later.");
+      }
+    } catch (err) {
+      alert("An error occurred. Please try again.");
+    }
+
+    setLoading(false);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -41,7 +84,9 @@ const ContactForm = ({ isOpen, onClose, serviceTitle }: ContactFormProps) => {
           <div className="flex justify-between items-center mb-6">
             <div>
               <h3 className="font-heading text-2xl text-foreground">
-                {serviceTitle ? `Enquire About ${serviceTitle}` : "Send Enquiry"}
+                {serviceTitle
+                  ? `Enquire About ${serviceTitle}`
+                  : "Send Enquiry"}
               </h3>
               <p className="text-muted-foreground text-sm mt-1">
                 We'll respond within 24 hours
@@ -56,67 +101,61 @@ const ContactForm = ({ isOpen, onClose, serviceTitle }: ContactFormProps) => {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-5">
-            <div>
-              <label className="block text-sm font-medium text-foreground mb-2">
-                Full Name
-              </label>
-              <input
-                type="text"
-                name="fullName"
-                value={formData.fullName}
-                onChange={handleChange}
-                required
-                className="input-luxury rounded-sm"
-                placeholder="Your full name"
-              />
-            </div>
+            <input
+              type="text"
+              name="fullName"
+              value={formData.fullName}
+              onChange={handleChange}
+              required
+              className="input-luxury rounded-sm"
+              placeholder="Your full name"
+            />
 
-            <div>
-              <label className="block text-sm font-medium text-foreground mb-2">
-                Email Address
-              </label>
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="input-luxury rounded-sm"
-                placeholder="your@email.com"
-              />
-            </div>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="input-luxury rounded-sm"
+              placeholder="your@email.com"
+            />
 
-            <div>
-              <label className="block text-sm font-medium text-foreground mb-2">
-                Phone Number
-              </label>
-              <input
-                type="tel"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                className="input-luxury rounded-sm"
-                placeholder="+91 98765 43210"
-              />
-            </div>
+            <input
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              className="input-luxury rounded-sm"
+              placeholder="+91 98980 76868"
+            />
 
-            <div>
-              <label className="block text-sm font-medium text-foreground mb-2">
-                Message
-              </label>
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                rows={4}
-                className="input-luxury rounded-sm resize-none"
-                placeholder="Tell us about your requirements..."
-              />
-            </div>
+            <textarea
+              name="message"
+              rows={4}
+              className="input-luxury rounded-sm resize-none"
+              placeholder="Tell us about your requirements..."
+              value={formData.message}
+              onChange={handleChange}
+            />
 
-            <button type="submit" className="btn-gold w-full rounded-sm">
-              Send Enquiry
+            <button
+              type="submit"
+              disabled={loading}
+              className="btn-gold w-full rounded-sm"
+            >
+              {loading
+                ? "Sending..."
+                : success
+                ? "✓ Sent Successfully"
+                : "Send Enquiry"}
             </button>
+
+            {success && (
+              <p className="text-center text-green-600 text-sm mt-2">
+                Thank you! Your enquiry has been sent successfully.
+              </p>
+            )}
           </form>
         </motion.div>
       </DialogContent>

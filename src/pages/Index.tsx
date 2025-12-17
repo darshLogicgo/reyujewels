@@ -2,10 +2,14 @@ import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSlider from "@/components/HeroSlider";
 import AboutSection from "@/components/AboutSection";
+import CVDHPHTSection from "@/components/CVDHPHTSection";
 import DiamondShapes from "@/components/DiamondShapes";
+import FancyColorDiamondSection from "@/components/FancyColorDiamondSection";
 import VideoSection from "@/components/VideoSection";
+import CustomShapeSection from "@/components/CustomShapeSection";
 import GallerySection from "@/components/GallerySection";
 import ServicesSection from "@/components/ServicesSection";
+import CertificateSection from "@/components/CertificateSection";
 import ContactSection from "@/components/ContactSection";
 import ReviewsSection from "@/components/ReviewsSection";
 import Footer from "@/components/Footer";
@@ -39,13 +43,21 @@ const Index = () => {
 
       <AboutSection />
 
+      <CVDHPHTSection />
+
       <DiamondShapes />
+
+      <CustomShapeSection onContactClick={handleContactClick} />
 
       <GallerySection />
 
       <VideoSection />
 
+      <FancyColorDiamondSection />
+
       <ServicesSection onServiceClick={handleServiceClick} />
+
+      <CertificateSection />
 
       <ContactSection onBookAppointment={handleContactClick} />
 

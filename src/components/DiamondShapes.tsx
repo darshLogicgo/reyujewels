@@ -129,14 +129,14 @@ const DiamondShapes = () => {
             className="text-center max-w-2xl mx-auto"
           >
             <span className="text-primary text-sm uppercase tracking-[0.25em] font-medium">
-              Shapes of Brilliance
+              Lab-grown focus, very minimal
             </span>
             <h2 className="heading-section mt-4 text-foreground">
-              Shapes of Diamonds
+              Lab-Grown Diamond Shapes
             </h2>
             <p className="text-luxury mt-4">
-              Each diamond shape possesses its own unique character and fire.
-              Discover the perfect cut that speaks to your soul.
+              Discover beautifully crafted lab-grown diamond cuts, designed for
+              modern elegance and conscious luxury.
             </p>
           </motion.div>
         </div>
@@ -149,7 +149,7 @@ const DiamondShapes = () => {
                 className="shape-card min-w-0"
               >
                 <div
-                  className="relative bg-background rounded-sm shadow-soft cursor-pointer transition-transform hover:scale-105"
+                  className="relative bg-background rounded-sm shadow-soft transition-transform hover:scale-105"
                   onClick={() => handleShapeClick(diamond.name)}
                 >
                   <div className="aspect-square flex items-center justify-center">
