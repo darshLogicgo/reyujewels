@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Masonry from "react-masonry-css";
+import SectionHeader from "@/components/SectionHeader";
 // import gallery1 from "@/assets/gallery-1.jpg";
 // import gallery2 from "@/assets/gallery-2.jpg";
 // import gallery3 from "@/assets/gallery-3.jpg";
@@ -48,24 +49,12 @@ const GallerySection = () => {
   return (
     <section id="collection" className="section-padding bg-background">
       <div className="container-luxury">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="text-center max-w-2xl mx-auto mb-16"
-        >
-          <span className="text-primary text-sm uppercase tracking-[0.25em] font-medium">
-            MODERN CRAFTSMANSHIP
-          </span>
-          <h2 className="heading-section mt-4 text-foreground">
-            Our Lab-Grown Collection{" "}
-          </h2>
-          <p className="text-luxury mt-4">
-            A refined selection of lab-grown diamond jewellery, crafted with
-            precision, purity, and modern elegance.
-          </p>
-        </motion.div>
+        <SectionHeader
+          subtitle="MODERN CRAFTSMANSHIP"
+          title="Our Lab-Grown Collection"
+          description="A refined selection of lab-grown diamond jewellery, crafted with precision, purity, and modern elegance."
+          textColor="foreground"
+        />
 
         <Masonry
           breakpointCols={breakpointColumns}

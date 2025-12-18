@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { FileText, ExternalLink } from "lucide-react";
+import SectionHeader from "@/components/SectionHeader";
 import c1Pdf from "@/assets/certificates/c1.pdf";
 import c2Pdf from "@/assets/certificates/c2.pdf";
 
@@ -39,25 +40,12 @@ const CertificateSection = () => {
   return (
     <section id="certificates" className="section-padding bg-background">
       <div className="container-luxury">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="text-center max-w-2xl mx-auto mb-16"
-        >
-          <span className="text-primary text-sm uppercase tracking-[0.25em] font-medium">
-            Trust & Excellence
-          </span>
-          <h2 className="heading-section mt-4 text-foreground">
-            Our Certifications
-          </h2>
-          <p className="text-luxury mt-4">
-            We are proud to showcase our certifications and accreditations that
-            demonstrate our commitment to quality, authenticity, and excellence
-            in every piece we create.
-          </p>
-        </motion.div>
+        <SectionHeader
+          subtitle="Trust & Excellence"
+          title="Our Certifications"
+          description="We are proud to showcase our certifications and accreditations that demonstrate our commitment to quality, authenticity, and excellence in every piece we create."
+          textColor="foreground"
+        />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6 lg:gap-8">
           {certificates.map((certificate, index) => (

@@ -22,8 +22,8 @@ const navLinks: NavLink[] = [
     label: "Diamonds",
     hasDropdown: true,
     dropdownItems: [
-      { href: "#diamonds", label: "Diamond Shapes" },
       { href: "#cvd-hpht", label: "CVD & HPHT" },
+      { href: "#diamonds", label: "Diamond Shapes" },
       { href: "#fancy-color-diamonds", label: "Fancy Color Diamonds" },
     ],
   },
@@ -56,6 +56,26 @@ const Navbar = ({ onContactClick }: NavbarProps) => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Scroll to section without changing URL hash
+  const scrollToSection = (href: string, e?: React.MouseEvent) => {
+    if (e) {
+      e.preventDefault();
+    }
+    const id = href.replace("#", "");
+    const element = document.getElementById(id);
+    if (element) {
+      const headerOffset = 100; // Account for fixed header
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition =
+        elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
 
   return (
     <>
@@ -108,13 +128,16 @@ const Navbar = ({ onContactClick }: NavbarProps) => {
                           className="absolute top-full left-0 mt-2 w-48 bg-background border border-border shadow-elegant rounded-sm overflow-hidden z-50"
                         >
                           {link.dropdownItems.map((item) => (
-                            <a
+                            <button
                               key={item.href}
-                              href={item.href}
-                              className="block px-4 py-3 text-sm uppercase tracking-[0.1em] font-medium text-foreground hover:bg-primary/10 hover:text-primary transition-colors duration-300"
+                              onClick={(e) => {
+                                scrollToSection(item.href, e);
+                                setHoveredDropdown(null);
+                              }}
+                              className="block w-full text-left px-4 py-3 text-sm uppercase tracking-[0.1em] font-medium text-foreground hover:bg-primary/10 hover:text-primary transition-colors duration-300"
                             >
                               {item.label}
-                            </a>
+                            </button>
                           ))}
                         </motion.div>
                       )}
@@ -124,13 +147,13 @@ const Navbar = ({ onContactClick }: NavbarProps) => {
               }
               if ("href" in link) {
                 return (
-                  <a
+                  <button
                     key={link.href}
-                    href={link.href}
+                    onClick={(e) => scrollToSection(link.href, e)}
                     className="text-sm uppercase tracking-[0.15em] font-medium transition-colors duration-300 hover:text-primary text-foreground"
                   >
                     {link.label}
-                  </a>
+                  </button>
                 );
               }
               return null;
@@ -222,10 +245,10 @@ const Navbar = ({ onContactClick }: NavbarProps) => {
                               >
                                 <div className="pl-4 py-2 space-y-1 border-l-2 border-primary/20 ml-4">
                                   {link.dropdownItems.map((item, subIndex) => (
-                                    <motion.a
+                                    <motion.button
                                       key={item.href}
-                                      href={item.href}
-                                      onClick={() => {
+                                      onClick={(e) => {
+                                        scrollToSection(item.href, e);
                                         setIsMobileMenuOpen(false);
                                         setExpandedMobileDropdown(null);
                                       }}
@@ -235,10 +258,10 @@ const Navbar = ({ onContactClick }: NavbarProps) => {
                                         duration: 0.2,
                                         delay: subIndex * 0.05,
                                       }}
-                                      className="block py-3 px-4 text-base font-body text-foreground/80 hover:text-primary hover:bg-primary/5 rounded-sm transition-all duration-300"
+                                      className="block w-full text-left py-3 px-4 text-base font-body text-foreground/80 hover:text-primary hover:bg-primary/5 rounded-sm transition-all duration-300"
                                     >
                                       {item.label}
-                                    </motion.a>
+                                    </motion.button>
                                   ))}
                                 </div>
                               </motion.div>
@@ -248,17 +271,19 @@ const Navbar = ({ onContactClick }: NavbarProps) => {
                       );
                     }
                     return (
-                      <motion.a
+                      <motion.button
                         key={link.href}
-                        href={link.href}
-                        onClick={() => setIsMobileMenuOpen(false)}
+                        onClick={(e) => {
+                          scrollToSection(link.href, e);
+                          setIsMobileMenuOpen(false);
+                        }}
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.3, delay: index * 0.05 }}
-                        className="block py-4 px-4 text-lg font-heading text-foreground hover:text-primary hover:bg-primary/5 rounded-sm transition-all duration-300"
+                        className="block w-full text-left py-4 px-4 text-lg font-heading text-foreground hover:text-primary hover:bg-primary/5 rounded-sm transition-all duration-300"
                       >
                         {link.label}
-                      </motion.a>
+                      </motion.button>
                     );
                   })}
                 </div>

@@ -15,6 +15,8 @@ import ReviewsSection from "@/components/ReviewsSection";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import BackToTop from "@/components/BackToTop";
+import SEO from "@/components/SEO";
 
 const Index = () => {
   const [isContactFormOpen, setIsContactFormOpen] = useState(false);
@@ -37,6 +39,15 @@ const Index = () => {
 
   return (
     <main className="min-h-screen bg-background overflow-x-hidden max-w-full">
+      <SEO
+        title="Reyu Jewels | Lab-Grown Diamonds – All Cuts & Shapes"
+        description="Explore premium lab-grown diamonds in all cuts and shapes at Reyu Jewels. Ethically sourced, IGI certified, custom-made jewellery available."
+        keywords="lab grown diamonds, diamond shapes, round cut diamond, oval diamond, emerald cut diamond, cushion cut diamond, ethical diamonds, Reyu Jewels"
+        ogTitle="Lab-Grown Diamonds – All Cuts & Shapes | Reyu Jewels"
+        ogDescription="Discover ethically crafted lab-grown diamonds in every cut and shape. Premium quality, certified stones, and custom jewellery at Reyu Jewels."
+        twitterTitle="Lab-Grown Diamonds – All Cuts & Shapes | Reyu Jewels"
+        twitterDescription="Premium lab-grown diamonds in all shapes & cuts. Ethical, certified, and custom-made jewellery by Reyu Jewels."
+      />
       <Navbar onContactClick={handleContactClick} />
 
       <HeroSlider onContactClick={handleContactClick} />
@@ -57,7 +68,7 @@ const Index = () => {
 
       <ServicesSection onServiceClick={handleServiceClick} />
 
-      <CertificateSection />
+      {/* <CertificateSection /> */}
 
       <ContactSection onBookAppointment={handleContactClick} />
 
@@ -66,6 +77,7 @@ const Index = () => {
       <Footer />
 
       <WhatsAppButton />
+      <BackToTop />
 
       <ContactForm
         isOpen={isContactFormOpen}

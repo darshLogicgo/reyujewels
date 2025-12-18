@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Clock, Star } from "lucide-react";
+import SectionHeader from "@/components/SectionHeader";
 
 interface ContactSectionProps {
   onBookAppointment: () => void;
@@ -84,22 +85,12 @@ const ContactSection = ({ onBookAppointment }: ContactSectionProps) => {
   return (
     <section id="contact" className="section-padding bg-secondary/30">
       <div className="container-luxury">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="text-center max-w-2xl mx-auto mb-16"
-        >
-          <span className="text-primary text-sm uppercase tracking-[0.25em] font-medium">
-            Get in Touch
-          </span>
-          <h2 className="heading-section mt-4 text-foreground">Contact Us</h2>
-          <p className="text-luxury mt-4">
-            We'd love to hear from you. Reach out for inquiries, appointments,
-            or to discuss your custom jewellery needs.
-          </p>
-        </motion.div>
+        <SectionHeader
+          subtitle="Get in Touch"
+          title="Contact Us"
+          description="We'd love to hear from you. Reach out for inquiries, appointments, or to discuss your custom jewellery needs."
+          textColor="foreground"
+        />
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-stretch">
           {/* Contact Form */}

@@ -2,6 +2,35 @@ import { Diamond } from "lucide-react";
 import logo from "@/assets/Diamond_Logo.png";
 
 const Footer = () => {
+  // Scroll to section without changing URL hash
+  const scrollToSection = (href: string, e?: React.MouseEvent) => {
+    if (e) {
+      e.preventDefault();
+    }
+    const id = href.replace("#", "");
+    const element = document.getElementById(id);
+    if (element) {
+      const headerOffset = 100; // Account for fixed header
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition =
+        elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  // Map link labels to section IDs
+  const linkMap: Record<string, string> = {
+    "About Us": "#about",
+    Diamonds: "#cvd-hpht", // First diamond section
+    Collection: "#collection",
+    Services: "#services",
+    Contact: "#contact",
+  };
+
   return (
     <footer className="bg-foreground py-16">
       <div className="container-luxury">
@@ -42,12 +71,18 @@ const Footer = () => {
                 "Contact",
               ].map((link) => (
                 <li key={link}>
-                  <a
-                    href={`#${link.toLowerCase().replace(" ", "")}`}
-                    className="text-primary-foreground/60 text-sm hover:text-primary transition-colors duration-300"
+                  <button
+                    onClick={(e) =>
+                      scrollToSection(
+                        linkMap[link] ||
+                          `#${link.toLowerCase().replace(" ", "")}`,
+                        e
+                      )
+                    }
+                    className="text-primary-foreground/60 text-sm hover:text-primary transition-colors duration-300 text-left"
                   >
                     {link}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>

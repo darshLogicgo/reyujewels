@@ -8,6 +8,7 @@ import {
   DialogTitle,
   DialogClose,
 } from "@/components/ui/dialog";
+import SectionHeader from "@/components/SectionHeader";
 import asscherImage from "@/assets/10.webp";
 import emeraldImage from "@/assets/07.webp";
 import cushionImage from "@/assets/05.webp";
@@ -98,6 +99,25 @@ const DiamondShapes = () => {
           min-width: 200px;
         }
 
+        .shape-image-wrapper {
+          aspect-ratio: 1;
+          display: flex;
+          align-items: center;
+          justify-center;
+          overflow: hidden;
+        }
+
+        .shape-image-wrapper img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          transition: transform 0.3s ease;
+        }
+
+        .shape-image-wrapper:hover img {
+          transform: scale(1.1);
+        }
+
         @media (max-width: 1024px) {
           .shape-card {
             flex: 0 0 180px;
@@ -110,6 +130,10 @@ const DiamondShapes = () => {
             flex: 0 0 160px;
             min-width: 160px;
           }
+
+          .shape-image-wrapper {
+            padding: 1rem;
+          }
         }
 
         @media (max-width: 640px) {
@@ -117,28 +141,21 @@ const DiamondShapes = () => {
             flex: 0 0 140px;
             min-width: 140px;
           }
+
+          .shape-image-wrapper {
+            padding: 0.75rem;
+          }
         }
       `}</style>
       <section id="diamonds" className="bg-secondary/30 py-16">
         <div className="container-luxury mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, margin: "-100px" }}
-            className="text-center max-w-2xl mx-auto"
-          >
-            <span className="text-primary text-sm uppercase tracking-[0.25em] font-medium">
-              Lab-grown focus, very minimal
-            </span>
-            <h2 className="heading-section mt-4 text-foreground">
-              Lab-Grown Diamond Shapes
-            </h2>
-            <p className="text-luxury mt-4">
-              Discover beautifully crafted lab-grown diamond cuts, designed for
-              modern elegance and conscious luxury.
-            </p>
-          </motion.div>
+          <SectionHeader
+            subtitle="Lab-grown focus, very minimal"
+            title="Lab-Grown Diamond Shapes"
+            description="Discover beautifully crafted lab-grown diamond cuts, designed for modern elegance and conscious luxury."
+            textColor="foreground"
+            className="mb-0"
+          />
         </div>
 
         <div className="shapes-wrapper w-full">
@@ -149,14 +166,13 @@ const DiamondShapes = () => {
                 className="shape-card min-w-0"
               >
                 <div
-                  className="relative bg-background rounded-sm shadow-soft transition-transform hover:scale-105"
+                  className="relative bg-background rounded-sm shadow-soft"
                   onClick={() => handleShapeClick(diamond.name)}
                 >
-                  <div className="aspect-square flex items-center justify-center">
+                  <div className="shape-image-wrapper">
                     <img
                       src={diamond.image}
                       alt={`${diamond.name} cut diamond`}
-                      className="w-full h-full object-contain"
                     />
                   </div>
                 </div>

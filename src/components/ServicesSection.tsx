@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Diamond, Sparkles, Palette } from "lucide-react";
+import SectionHeader from "@/components/SectionHeader";
 
 const services = [
   {
@@ -30,24 +31,12 @@ const ServicesSection = ({ onServiceClick }: ServicesSectionProps) => {
   return (
     <section id="services" className="section-padding bg-foreground">
       <div className="container-luxury">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="text-center max-w-2xl mx-auto mb-16"
-        >
-          <span className="text-primary text-sm uppercase tracking-[0.25em] font-medium">
-            Bespoke Excellence
-          </span>
-          <h2 className="heading-section mt-4 text-primary-foreground">
-            Our Services
-          </h2>
-          <p className="text-primary-foreground/70 text-base md:text-lg leading-relaxed mt-4">
-            Experience the art of personalized luxury with our exclusive
-            services, tailored to your unique desires and discerning taste.
-          </p>
-        </motion.div>
+        <SectionHeader
+          subtitle="Bespoke Excellence"
+          title="Our Services"
+          description="Experience the art of personalized luxury with our exclusive services, tailored to your unique desires and discerning taste."
+          textColor="primary-foreground"
+        />
 
         <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
           {services.map((service, index) => (

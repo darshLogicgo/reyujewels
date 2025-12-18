@@ -1,11 +1,6 @@
 import { motion } from "framer-motion";
-import {
-  Upload,
-  CheckCircle,
-  Palette,
-  Settings,
-  Package,
-} from "lucide-react";
+import { Upload, CheckCircle, Palette, Settings, Package } from "lucide-react";
+import SectionHeader from "@/components/SectionHeader";
 
 const processSteps = [
   {
@@ -49,29 +44,13 @@ const CustomShapeSection = ({ onContactClick }: CustomShapeSectionProps) => {
     <section id="custom-shape" className="section-padding bg-foreground">
       <div className="container-luxury">
         {/* Header Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="text-center max-w-3xl mx-auto mb-16"
-        >
-          <span className="text-primary text-sm uppercase tracking-[0.25em] font-medium">
-            Bespoke Manufacturing
-          </span>
-          <h2 className="heading-section mt-4 text-primary-foreground">
-            Custom Your Own Shape
-          </h2>
-          <p className="text-primary-foreground/90 text-lg md:text-xl font-medium mt-6 leading-relaxed">
-            We Cut Diamonds to Your Imagination. Any Shape. Any Size. Any Ratio.
-            Manufactured for You.
-          </p>
-          <p className="text-primary-foreground/70 text-base md:text-lg leading-relaxed mt-6">
-            From classic rounds to fancy one-of-a-kind shapes — we manufacture
-            diamonds exactly the way you want, with calibrated sizes, premium
-            make, with IGI certification upon request.
-          </p>
-        </motion.div>
+        <SectionHeader
+          subtitle="Bespoke Manufacturing"
+          title="Custom Your Own Shape"
+          description="From classic rounds to fancy one-of-a-kind shapes — we manufacture diamonds exactly the way you want, with calibrated sizes, premium make, with IGI certification upon request."
+          maxWidth="3xl"
+          textColor="primary-foreground"
+        />
 
         {/* Process Steps Section */}
         <div className="mb-16">
@@ -147,10 +126,7 @@ const CustomShapeSection = ({ onContactClick }: CustomShapeSectionProps) => {
               Let's bring your unique vision to life. Contact us to discuss your
               custom diamond requirements.
             </p>
-            <button
-              onClick={onContactClick}
-              className="btn-gold rounded-sm"
-            >
+            <button onClick={onContactClick} className="btn-gold rounded-sm">
               Start Your Custom Order
             </button>
           </div>
@@ -161,4 +137,3 @@ const CustomShapeSection = ({ onContactClick }: CustomShapeSectionProps) => {
 };
 
 export default CustomShapeSection;
-

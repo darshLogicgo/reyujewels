@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
+import SectionHeader from "@/components/SectionHeader";
 
 const reviews = [
   {
@@ -157,24 +158,12 @@ const ReviewsSection = () => {
         className="section-padding bg-secondary/20 overflow-hidden"
       >
         <div className="container-luxury">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true, margin: "-100px" }}
-            className="text-center max-w-2xl mx-auto mb-16"
-          >
-            <span className="text-primary text-sm uppercase tracking-[0.25em] font-medium">
-              Testimonials
-            </span>
-            <h2 className="heading-section mt-4 text-foreground">
-              What Our Clients Say
-            </h2>
-            <p className="text-luxury mt-4">
-              Discover why discerning customers choose Reyu Jewels for their
-              most precious moments.
-            </p>
-          </motion.div>
+          <SectionHeader
+            subtitle="Testimonials"
+            title="What Our Clients Say"
+            description="Discover why discerning customers choose Reyu Jewels for their most precious moments."
+            textColor="foreground"
+          />
 
           <div className="reviews-bleed">
             <div className="reviews-wrapper">

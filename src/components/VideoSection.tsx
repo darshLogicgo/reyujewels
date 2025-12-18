@@ -1,3 +1,5 @@
+import SectionHeader from "@/components/SectionHeader";
+
 const videos = [
   {
     id: 1,
@@ -125,18 +127,13 @@ const VideoSection = () => {
       `}</style>
       <section className="py-24 bg-foreground overflow-hidden">
         <div className="container-luxury mx-auto px-6 relative">
-          {/* ===== Heading Section (AS IT IS) ===== */}
-          <div className="text-center mb-16 max-w-2xl mx-auto">
-            <p className="text-primary uppercase tracking-[0.25em] text-sm mb-4">
-              OUR LAB-GROWN DIAMONDS
-            </p>
-            <h2 className="text-4xl font-heading text-background mb-4">
-              Shapes of Brilliance
-            </h2>
-            <p className="text-background/70">
-              Precision-cut lab-grown diamonds crafted to perfection.
-            </p>
-          </div>
+          {/* ===== Heading Section ===== */}
+          <SectionHeader
+            subtitle="OUR LAB-GROWN DIAMONDS"
+            title="Shapes of Brilliance"
+            description="Precision-cut lab-grown diamonds crafted to perfection."
+            textColor="background"
+          />
 
           {/* ===== Custom Infinite Scroll Carousel ===== */}
           <div className="video-carousel-bleed">
