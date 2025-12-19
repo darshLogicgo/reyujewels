@@ -1,14 +1,14 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import hero1 from "@/assets/banner1.webp";
-import hero2 from "@/assets/banner2.webp";
-import hero3 from "@/assets/banner3.webp";
+import hero1 from "@/assets/i1.webp";
+import hero2 from "@/assets/i2.webp";
+import hero3 from "@/assets/i3.webp";
 
 const slides = [
-  { image: hero1, tagline: "Crafting Timeless Diamond Elegance" },
-  { image: hero2, tagline: "Where Luxury Meets Artistry" },
-  { image: hero3, tagline: "Brilliance Beyond Compare" },
+  { image: hero1, tagline: "We Believe in Consistency" },
+  { image: hero2, tagline: "Crafted with Precision" },
+  { image: hero3, tagline: "From First Spark to Final Brilliance" },
 ];
 
 interface HeroSliderProps {
