@@ -68,7 +68,7 @@ const Index = () => {
 
       <ServicesSection onServiceClick={handleServiceClick} />
 
-      {/* <CertificateSection /> */}
+      <CertificateSection />
 
       <ContactSection onBookAppointment={handleContactClick} />
 
